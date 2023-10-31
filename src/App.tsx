@@ -1,10 +1,17 @@
 import './App.css'
+import { QueryClient, QueryClientProvider } from "react-query"
+import { MantineProvider } from '@mantine/core'
+import { Converter } from './components/Converter/Converter'
+
+const queryClient = new QueryClient({});
 
 function App() {
   return (
-    <>
-      <h1>Vite + React + TypeScript</h1>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <MantineProvider  defaultColorScheme="light">
+        <Converter />
+      </MantineProvider>
+    </QueryClientProvider>
   )
 }
 
