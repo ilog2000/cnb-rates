@@ -8,7 +8,7 @@ npm create vite@latest cnb-rates -- --template react-ts
 ```
 
 Third party packages:
-`react-query @mantine/core @mantine/hooks @mantine/form`
+`react-query`
 
 To run the application locally, clone the repository and run:
 ```shell

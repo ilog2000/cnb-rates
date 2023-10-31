@@ -1,0 +1,57 @@
+small {
+  font-size: smaller;
+}
+
+hr {
+  width: 96%;
+  border: 1px dotted #228be6;
+}
+
+form label, form input, form select, form button {
+  padding: 8px;
+  margin: 8px;
+  font-weight: bold;
+}
+
+form label, form button {
+  display: block;
+}
+
+form input:focus, form select:focus, form button:focus {
+  outline: none !important;
+  border:1px solid lightblue;
+}
+
+.converter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 460px;
+  width: 720px;
+  border: #228be6 1px solid;
+  border-radius: 16px;
+}
+
+.button {
+  background-color: #228be6;
+  color: white;
+  border: none;
+  width: 96%;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.conversionResult {
+  margin-top: 48px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #228be6;
+  min-width: 50%;
+  border: lightblue 1px solid;
+}
