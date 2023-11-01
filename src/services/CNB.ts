@@ -7,6 +7,14 @@ export function parseTextData(textData: string): ExchangeData {
   const [date, idx] = lines[0].split(' #')
   const rates = new Map<Currency, ExchangeRate>()
 
+  rates.set('CZK', {
+    country: 'Česká republika',
+    currencyName: 'Koruna česká',
+    currencyCode: 'CZK',
+    amount: 1,
+    rate: 1,
+  })
+
   // Skip lines[1] containing the header
   for (let i = 2; i < lines.length; i++) {
     const [country, currencyName, amount, currencyCode, rate] = lines[i].split('|')
