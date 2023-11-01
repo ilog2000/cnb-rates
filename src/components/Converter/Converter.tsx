@@ -1,4 +1,3 @@
-// import config from '../../config.json'
 import { useRef, useState } from 'react'
 import classes from './Converter.module.css'
 
