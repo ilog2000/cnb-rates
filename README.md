@@ -7,10 +7,10 @@ The application is built with React and TypeScript. Vite `create app` template w
 npm create vite@latest cnb-rates -- --template react-ts
 ```
 
-Third party packages:
-`react-query`
-
 To run the application locally, clone the repository and run:
 ```shell
 npm run dev
 ```
+
+### TODO
+- [ ] Load currency exchange rates from the ČNB API only once a working day at 2pm CET.
