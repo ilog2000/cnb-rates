@@ -13,3 +13,9 @@ export interface ExchangeData {
   idx: number
   rates: Map<Currency, ExchangeRate>
 }
+
+export const defaultExchangeData: ExchangeData = {
+  date: new Date().toISOString(),
+  idx: 0,
+  rates: new Map(),
+}

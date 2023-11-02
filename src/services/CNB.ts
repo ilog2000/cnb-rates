@@ -1,8 +1,10 @@
-import config from '../config.json'
 import { Currency } from '../models/Currency'
 import { ExchangeData, ExchangeRate } from '../models/ExchangeData'
 
 export function parseTextData(textData: string): ExchangeData {
+  if (textData === '') {
+    throw new Error('Empty CNB response')
+  }
   const lines = textData.split('\n')
   const [date, idx] = lines[0].split(' #')
   const rates = new Map<Currency, ExchangeRate>()
@@ -35,11 +37,18 @@ export function parseTextData(textData: string): ExchangeData {
     rates,
   }
 }
-export async function fetchExchangeData(): Promise<ExchangeData> {
-  const url = config.cnbURL
-  const response = await fetch(url)
-  const textData = await response.text()
-  return parseTextData(textData)
+export async function fetchExchangeData(url: string): Promise<string> {
+  try {
+    const response = await fetch(url, {
+      cache: 'no-store',
+      headers: { Accept: 'text/plain' },
+    })
+    const textData = await response.text()
+    console.log('CNB response:', textData)
+    return textData
+  } catch (error) {
+    throw new Error(`Failed to fetch exchange data: ${error}`)
+  }
 }
 
 export function setLocalExchangeData(data: ExchangeData) {
@@ -51,5 +60,5 @@ export function getLocalExchangeData(): ExchangeData | null {
   if (data === null) {
     return null
   }
-  return JSON.parse(data)
+  return JSON.parse(data) as ExchangeData
 }
